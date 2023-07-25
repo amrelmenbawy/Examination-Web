@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg " style="background-color: #3f51b5">
+  <div class="container">
+    <a class="navbar-brand text-light user-select-none" >Tester</a>
+    <button class="navbar-toggler test-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between link-offset-1-hover" id="navbarNav">
+      <ul class="navbar-nav ">
+        <li class="nav-item ">
+          <a class="nav-link active text-light" aria-current="page"
+          [routerLink]="['/home']"
+          [routerLinkActive]="'rounded-5 darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"
+          [routerLink]="['/about']"
+          [routerLinkActive]="'rounded-5 darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light"
+          [routerLink]="['/contact']"
+          [routerLinkActive]="'rounded-pill darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Contact</a>
+        </li>
+        <li [hidden]="!isuserlogging" class="nav-item">
+          <a class="nav-link text-light"
+          [routerLink]="['/exam']"
+          [routerLinkActive]="'rounded-pill darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Take Exam</a>
+        </li>
+        <li [hidden]="!isuserloggingadmin" class="nav-item">
+          <a class="nav-link text-light"
+          [routerLink]="['/admin']"
+          [routerLinkActive]="'rounded-pill darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Admin</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li [hidden]="!isuserlogging" class="nav-item">
+          <a class="nav-link text-light">{{username}}</a>
+        </li>
+        <li [hidden]="!isuserlogging" class="nav-item">
+          <a class="nav-link btn text-light" (click)="logout()">Logout</a>
+        </li>
+        <li [hidden]="isuserlogging" class="nav-item">
+          <a class="nav-link text-light"
+          [routerLink]="['/login']"
+          [routerLinkActive]="'rounded-pill darkbule'"
+          [routerLinkActiveOptions]="{exact:true}"
+          >Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+

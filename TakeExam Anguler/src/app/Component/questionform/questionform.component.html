@@ -1,0 +1,103 @@
+<div class="container w-75 p-5 rounded-5 text-light mt-3"  style=" background-color: #243e64;">
+  <form class="w-100" [formGroup]="questionfrom" (submit)="OperationONForm($event)" >
+    <div class="mb-3">
+      <label for="Head" class="form-label text-bold">Question Head</label>
+      <input type="text" class="form-control" name="Head" id="Head" placeholder="Head Of Question"
+      formControlName="head">
+      <ng-container *ngIf="gethead.touched || error">
+      <div  class="form-text  text-light rounded font-monospace"
+      *ngIf="gethead.hasError('required');"
+      ><span class="bg-danger rounded">* Head is Required!!!
+        </span>
+        </div>
+      <div  class="form-text  text-light rounded font-monospace"
+      *ngIf="gethead.hasError('minlength');"
+      ><span class="bg-danger rounded">* Minimum Lenght OF Head is 3 !!! </span></div>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="Body" class="form-label">Body</label>
+      <input type="text" class="form-control" placeholder="Body OF Question" id="Body"
+      formControlName="body">
+      <ng-container *ngIf="getbody.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getbody.hasError('required');"
+        ><span class="bg-danger rounded">* Body is Required!!!
+          </span>
+          </div>
+          <div  class="form-text  text-light rounded font-monospace"
+          *ngIf="getbody.hasError('minlength');"
+          ><span class="bg-danger rounded">* Minimum Lenght OF body is 20 !!!
+          </span></div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="a" class="form-label">the first Choose (a)</label>
+      <input type="text" class="form-control" placeholder="Enter the first Choose" id="a"
+      formControlName="a">
+      <ng-container *ngIf="geta.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="geta.hasError('required');"
+        ><span class="bg-danger rounded">* Required!!!
+          </span>
+          </div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="b" class="form-label">the Second Choose (b)</label>
+      <input type="text" class="form-control" placeholder="Enter the Second Choose" id="b"
+      formControlName="b">
+      <ng-container *ngIf="getb.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getb.hasError('required');"
+        ><span class="bg-danger rounded">* Required!!!
+          </span>
+          </div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="c" class="form-label">the third Choose (c)</label>
+      <input type="text" class="form-control" placeholder="Enter the third choose" id="c"
+      formControlName="c">
+      <ng-container *ngIf="getc.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getc.hasError('required');"
+        ><span class="bg-danger rounded">* Required!!!
+          </span>
+          </div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="d" class="form-label">the Fourth Choose (d)</label>
+      <input type="text" class="form-control" placeholder="Enter the Fourth Choose" id="d"
+      formControlName="d">
+      <ng-container *ngIf="getd.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getd.hasError('required');"
+        ><span class="bg-danger rounded">* Required!!!
+          </span>
+          </div>
+        </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="correctAns" class="form-label">What is the Right answer ? a for first OR b for second OR c for third OR d for fourth chooce</label>
+      <input type="text" class="form-control" placeholder="Enter the Right Answer" id="CorrectAns"
+      formControlName="correctAns">
+      <ng-container *ngIf="getCorrectAns.touched ||error">
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getCorrectAns.hasError('required');"
+        ><span class="bg-danger rounded">* Required!!!
+          </span>
+          </div>
+        <div class="form-text  text-light rounded font-monospace"
+        *ngIf="getCorrectAns.hasError('pattern');"
+        ><span class="bg-danger rounded">You Must Enter a for first Choose OR b for second OR c for third OR d for fourth chooce
+          </span>
+          </div>
+        </ng-container>
+    </div>
+        <div class="d-flex justify-content-center ">
+      <button type="submit" class="btn btn-warning">{{QuestionID==0 ?'Add Question':'Edit Question'}}</button>
+    </div>
+  </form>
+</div>
